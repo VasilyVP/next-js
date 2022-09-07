@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode, useEffect, useState } from "react"
+import type { NextPage } from "next"
 import Image from 'next/image'
 import churchImg from '/assets/church.jpg'
 import iceImg from '/assets/ice.jpg'
@@ -25,7 +26,7 @@ export async function getServerSideProps() {
     });
 }
 
-export default function Part1({ list }: { list: string[] }) {
+const Part1: NextPage<{ list: string[]}> = ({ list }) => {
     //const [show, setShow] = useState(false);
 
     const content = list.map((el, i) => <p key={i}>{el}</p>);
@@ -50,3 +51,5 @@ export default function Part1({ list }: { list: string[] }) {
         </div>
     )
 }
+
+export default Part1;
